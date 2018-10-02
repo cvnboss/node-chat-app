@@ -14,6 +14,16 @@ app.use(express.static(publicPath));
 io.on('connection', socket => {
     console.log('New user was connected'); // eslint-disable-line
 
+    socket.emit('newMessage', {
+        from: 'Long',
+        text: 'Rock on',
+        createdAt: 123
+    });
+
+    socket.on('createMessage', message => {
+        console.log('createMessage', message); // eslint-disable-line
+    });
+
     socket.on('disconnect', () => {
         console.log('User was disconnected'); // eslint-disable-line
     });
