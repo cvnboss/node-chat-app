@@ -2,11 +2,6 @@ var socket = io(); // eslint-disable-line
 
 socket.on('connect', function() {
     console.log('Connected to server'); // eslint-disable-line
-
-    socket.emit('createMessage', {
-        from: 'Phat',
-        text: 'Hey'
-    });
 });
 
 socket.on('disconnect', function() {
